@@ -4,6 +4,7 @@
 
 int main(int argc, char **argv)
 {
+	// Simple graph for testing purposes.
 	Graph G;
 	G.AddEdge(0, 1, 1);
 	G.AddEdge(1, 2, 1);
