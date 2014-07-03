@@ -1,4 +1,4 @@
 MiscAlgorithms
 ==============
 
-Scratch area for algorithm implementation.
+Scratch area for algorithm implementation practice.
