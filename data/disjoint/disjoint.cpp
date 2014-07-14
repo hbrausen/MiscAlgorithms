@@ -2,6 +2,7 @@
 
 using namespace std;
 
+// Union-Find Algorithm with Path Compression
 class DisjointSets {
 	public:
 		DisjointSets(int N) : parent(vector<int>(N)), rank(vector<int>(N)) {}

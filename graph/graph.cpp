@@ -18,6 +18,7 @@ typedef set<int>::const_iterator ConstNodeIterator;
 typedef vector<WeightedEdge>::iterator EdgeIterator;
 typedef vector<WeightedEdge>::const_iterator ConstEdgeIterator;
 
+// Graph implemented as edge list and node set.
 struct Graph {
 	vector<WeightedEdge> edges;	// Weighted directed edges in the graph.
 	set<int> nodes;	// Keep a set of nodes around so we know how many nodes are in the graph.
