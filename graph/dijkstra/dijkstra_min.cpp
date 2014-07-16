@@ -7,16 +7,10 @@
 
 using namespace std;
 
-struct Edge {
-	Edge() : dst(0), len(0) {}
-	Edge(int dst, int len) : dst(dst), len(len) {}
-	int dst, len;
-};
-
 struct Graph {
-	Graph(int N) : graph(N, list<Edge>()) {}
-	void addEdge(int src, int dst, int len) { graph[src].push_back(Edge(dst, len)); }
-	vector<list<Edge> > graph;
+	Graph(int N) : graph(N, list<pair<int, int> >()) {}
+	void addEdge(int src, int dst, int len) { graph[src].push_back(make_pair(dst, len)); }
+	vector<list<pair<int, int> > > graph;
 };
 
 vector<int> Dijkstra(const Graph& G, int src)
@@ -33,12 +27,12 @@ vector<int> Dijkstra(const Graph& G, int src)
 		pair<int, int> entry = q.top(); q.pop();
 		int cur = entry.second;
 		if (visited[cur]) continue;
-		for (list<Edge>::const_iterator it = G.graph[cur].begin(); it != G.graph[cur].end(); ++it) {
-			if (visited[it->dst]) continue;
-			if (distance[cur] + it->len < distance[it->dst]) {
-				distance[it->dst] = distance[cur] + it->len;
-				prev[it->dst] = cur;
-				q.push(make_pair(distance[it->dst], it->dst));
+		for (list<pair<int, int> >::const_iterator it = G.graph[cur].begin(); it != G.graph[cur].end(); ++it) {
+			if (visited[it->first]) continue;
+			if (distance[cur] + it->second < distance[it->first]) {
+				distance[it->first] = distance[cur] + it->second;
+				prev[it->first] = cur;
+				q.push(make_pair(distance[it->first], it->first));
 			}
 		}
 		visited[cur] = true;
