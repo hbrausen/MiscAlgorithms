@@ -1,4 +1,4 @@
-#include "dijkstra.cpp"
+#include "dijkstra_min.cpp"
 
 #include <iostream>
 
